@@ -1,0 +1,65 @@
+plugins {
+    id 'java'
+}
+
+group = 'legendary.hardcore'
+version = '1.0.0'
+
+repositories {
+    mavenCentral()
+    maven {
+        name = 'papermc'
+        url = 'https://repo.papermc.io/repository/maven-public/'
+    }
+}
+
+dependencies {
+    compileOnly 'dev.folia:folia-api:1.21.11-R0.1-SNAPSHOT'
+
+    testImplementation platform('org.junit:junit-bom:5.10.0')
+    testImplementation 'org.junit.jupiter:junit-jupiter'
+    testRuntimeOnly 'org.junit.platform:junit-platform-launcher'
+}
+
+java {
+    toolchain {
+        languageVersion = JavaLanguageVersion.of(21)
+    }
+}
+
+sourceSets {
+    main {
+        java {
+            srcDirs = ['folia/src/main/java']
+        }
+        resources {
+            srcDirs = ['folia/src/main/resources']
+        }
+    }
+    test {
+        java {
+            srcDirs = ['folia/src/test/java']
+        }
+        resources {
+            srcDirs = ['folia/src/test/resources']
+        }
+    }
+}
+
+tasks.withType(JavaCompile).configureEach {
+    options.encoding = 'UTF-8'
+    options.release = 21
+}
+
+processResources {
+    inputs.property 'version', project.version
+    filteringCharset = 'UTF-8'
+
+    filesMatching('plugin.yml') {
+        expand version: project.version
+    }
+}
+
+test {
+    useJUnitPlatform()
+}

@@ -1,0 +1,12 @@
+debug: false
+
+colors:
+  badge: dark_aqua
+  badge-text: white
+  area: gold
+  time: gray
+  unavailable: red
+  tps:
+    good: green
+    warning: yellow
+    bad: red

@@ -1,0 +1,28 @@
+name: FoliaLocalTPS
+version: '${version}'
+main: legendary.hardcore.folialocaltps.FoliaLocalTpsPlugin
+api-version: '1.21'
+folia-supported: true
+description: Shows a player's local Folia region TPS and the global server TPS.
+author: LegendaryHardcore
+commands:
+  tps-all:
+    description: Shows your local region TPS and the global TPS.
+    usage: /tps-all
+  tps-local:
+    description: Shows your local region TPS.
+    usage: /tps-local
+  tps-global:
+    description: Shows the global TPS.
+    usage: /tps-global
+  folialocaltps:
+    description: FoliaLocalTPS administration command.
+    usage: /folialocaltps reload
+    permission: folialocaltps.reload
+permissions:
+  folialocaltps.execute:
+    description: Allows use of FoliaLocalTPS TPS commands.
+    default: true
+  folialocaltps.reload:
+    description: Allows reloading FoliaLocalTPS configuration.
+    default: op
