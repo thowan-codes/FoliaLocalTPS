@@ -1,0 +1,19 @@
+dependencies {
+    implementation project(':common')
+    compileOnly 'io.canvasmc.canvas:canvas-api:1.21.11-R0.1-SNAPSHOT'
+}
+
+processResources {
+    inputs.property 'version', project.version
+    filteringCharset = 'UTF-8'
+
+    filesMatching('plugin.yml') {
+        expand version: project.version
+    }
+}
+
+jar {
+    archiveBaseName = 'CanvasLocalTPS'
+    duplicatesStrategy = DuplicatesStrategy.EXCLUDE
+    from project(':common').sourceSets.main.output
+}

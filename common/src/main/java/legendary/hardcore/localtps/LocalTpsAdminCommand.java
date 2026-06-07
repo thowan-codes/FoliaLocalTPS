@@ -1,4 +1,4 @@
-package legendary.hardcore.folialocaltps;
+package legendary.hardcore.localtps;
 
 import java.util.Collections;
 import java.util.List;
@@ -10,12 +10,10 @@ import org.bukkit.command.TabExecutor;
 import org.jetbrains.annotations.NotNull;
 import org.jetbrains.annotations.Nullable;
 
-final class FoliaLocalTpsCommand implements TabExecutor {
-    private static final String RELOAD_PERMISSION = "folialocaltps.reload";
+final class LocalTpsAdminCommand implements TabExecutor {
+    private final LocalTpsPlugin plugin;
 
-    private final FoliaLocalTpsPlugin plugin;
-
-    FoliaLocalTpsCommand(FoliaLocalTpsPlugin plugin) {
+    LocalTpsAdminCommand(LocalTpsPlugin plugin) {
         this.plugin = plugin;
     }
 
@@ -27,9 +25,12 @@ final class FoliaLocalTpsCommand implements TabExecutor {
         @NotNull String[] args
     ) {
         if (args.length == 1 && args[0].equalsIgnoreCase("reload")) {
-            if (!sender.hasPermission(RELOAD_PERMISSION)) {
+            if (!sender.hasPermission(plugin.reloadPermission())) {
                 sender.sendMessage(plugin.settings().badge()
-                    .append(Component.text(" You do not have permission to reload FoliaLocalTPS.", plugin.settings().badColor())));
+                    .append(Component.text(
+                        " You do not have permission to reload " + plugin.platformName() + "LocalTPS.",
+                        plugin.settings().badColor()
+                    )));
                 return true;
             }
 
@@ -41,7 +42,10 @@ final class FoliaLocalTpsCommand implements TabExecutor {
         }
 
         sender.sendMessage(plugin.settings().badge()
-            .append(Component.text(" Usage: /folialocaltps reload", plugin.settings().timeColor())));
+            .append(Component.text(
+                " Usage: /" + plugin.adminCommandName() + " reload",
+                plugin.settings().timeColor()
+            )));
         return true;
     }
 
@@ -52,7 +56,7 @@ final class FoliaLocalTpsCommand implements TabExecutor {
         @NotNull String alias,
         @NotNull String[] args
     ) {
-        if (args.length == 1 && sender.hasPermission(RELOAD_PERMISSION)) {
+        if (args.length == 1 && sender.hasPermission(plugin.reloadPermission())) {
             String current = args[0].toLowerCase(Locale.ROOT);
             if ("reload".startsWith(current)) {
                 return List.of("reload");

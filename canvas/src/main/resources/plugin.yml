@@ -1,0 +1,28 @@
+name: CanvasLocalTPS
+version: '${version}'
+main: legendary.hardcore.canvaslocaltps.CanvasLocalTpsPlugin
+api-version: '1.21'
+canvas-supported: true
+description: Shows a player's local Canvas region TPS and the global server TPS.
+author: LegendaryHardcore
+commands:
+  tps-all:
+    description: Shows your local region TPS and the global TPS.
+    usage: /tps-all
+  tps-local:
+    description: Shows your local region TPS.
+    usage: /tps-local
+  tps-global:
+    description: Shows the global TPS.
+    usage: /tps-global
+  canvaslocaltps:
+    description: CanvasLocalTPS administration command.
+    usage: /canvaslocaltps reload
+    permission: canvaslocaltps.reload
+permissions:
+  canvaslocaltps.execute:
+    description: Allows use of CanvasLocalTPS TPS commands.
+    default: true
+  canvaslocaltps.reload:
+    description: Allows reloading CanvasLocalTPS configuration.
+    default: op

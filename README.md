@@ -1,8 +1,15 @@
-# FoliaLocalTPS
+# LocalTPS for Folia and Canvas
 
-FoliaLocalTPS is a lightweight Folia-only plugin that gives players useful TPS information without exposing server region details, coordinates, or other player positions.
+This project builds lightweight Folia and Canvas plugins that give players useful TPS information without exposing server region details, coordinates, or other player positions.
 
-The goal is simple: help players understand whether lag is local to their current Folia region or affecting the whole server, while keeping region layout and location data private.
+The two platform plugins share their configuration, output formatting, and TPS command implementation. Platform entry points and TPS providers are kept separate so Folia- or Canvas-specific APIs can evolve independently.
+
+## Building
+
+Run `./gradlew platformJars` to build both artifacts and copy them to the top-level `dist` directory:
+
+- `dist/FoliaLocalTPS-1.0.0.jar`
+- `dist/CanvasLocalTPS-1.0.0.jar`
 
 ## Commands
 
@@ -11,7 +18,8 @@ The goal is simple: help players understand whether lag is local to their curren
 | `/tps-all` | Shows both local region TPS and global TPS. | Everyone |
 | `/tps-local` | Shows only the player's current local region TPS. | Everyone |
 | `/tps-global` | Shows only the server's global TPS. | Everyone |
-| `/folialocaltps reload` | Reloads the plugin configuration. | `folialocaltps.reload` |
+| `/folialocaltps reload` | Reloads the Folia plugin configuration. | `folialocaltps.reload` |
+| `/canvaslocaltps reload` | Reloads the Canvas plugin configuration. | `canvaslocaltps.reload` |
 
 Folia's native `/tps` command is not replaced or overridden.
 
@@ -21,6 +29,8 @@ Folia's native `/tps` command is not replaced or overridden.
 | --- | --- | --- |
 | `folialocaltps.execute` | `true` | Documents access to the public TPS commands. |
 | `folialocaltps.reload` | `op` | Allows reloading the plugin configuration. |
+| `canvaslocaltps.execute` | `true` | Documents access to the public TPS commands. |
+| `canvaslocaltps.reload` | `op` | Allows reloading the plugin configuration. |
 
 The public TPS commands are intentionally available to all players by default.
 

@@ -1,1 +1,3 @@
 rootProject.name = 'FoliaLocalTPS'
+
+include 'common', 'folia', 'canvas'

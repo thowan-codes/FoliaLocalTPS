@@ -1,11 +1,11 @@
-package legendary.hardcore.folialocaltps;
+package legendary.hardcore.localtps;
 
 import net.kyori.adventure.text.Component;
 import net.kyori.adventure.text.format.NamedTextColor;
 import net.kyori.adventure.text.format.TextColor;
 import org.bukkit.configuration.file.FileConfiguration;
 
-record PluginSettings(
+public record PluginSettings(
     Component badge,
     TextColor badgeColor,
     TextColor badgeTextColor,
@@ -16,13 +16,13 @@ record PluginSettings(
     TextColor badColor,
     TextColor unavailableColor
 ) {
-    static PluginSettings fromConfig(FileConfiguration config) {
+    static PluginSettings fromConfig(FileConfiguration config, String pluginName) {
         TextColor badgeColor = color(config, "colors.badge", NamedTextColor.DARK_AQUA);
         TextColor badgeTextColor = color(config, "colors.badge-text", NamedTextColor.WHITE);
 
         return new PluginSettings(
             Component.text("[", badgeColor)
-                .append(Component.text("FoliaLocalTPS", badgeTextColor))
+                .append(Component.text(pluginName, badgeTextColor))
                 .append(Component.text("]", badgeColor)),
             badgeColor,
             badgeTextColor,

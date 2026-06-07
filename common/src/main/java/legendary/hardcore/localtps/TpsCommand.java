@@ -1,10 +1,9 @@
-package legendary.hardcore.folialocaltps;
+package legendary.hardcore.localtps;
 
 import java.util.Collections;
 import java.util.List;
 import net.kyori.adventure.text.Component;
 import net.kyori.adventure.text.format.NamedTextColor;
-import org.bukkit.Bukkit;
 import org.bukkit.Location;
 import org.bukkit.command.Command;
 import org.bukkit.command.CommandSender;
@@ -17,10 +16,12 @@ final class TpsCommand implements TabExecutor {
     private static final String[] REGION_LABELS = {"5s", "15s", "1m", "5m", "15m"};
     private static final String[] GLOBAL_LABELS = {"1m", "5m", "15m"};
 
-    private final FoliaLocalTpsPlugin plugin;
+    private final LocalTpsPlugin plugin;
+    private final TpsProvider tpsProvider;
 
-    TpsCommand(FoliaLocalTpsPlugin plugin) {
+    TpsCommand(LocalTpsPlugin plugin, TpsProvider tpsProvider) {
         this.plugin = plugin;
+        this.tpsProvider = tpsProvider;
     }
 
     @Override
@@ -54,8 +55,8 @@ final class TpsCommand implements TabExecutor {
     private void sendTps(Player player, TpsView view) {
         PluginSettings settings = plugin.settings();
         Location location = player.getLocation();
-        double[] regionTps = view.includesLocal() ? Bukkit.getRegionTPS(location) : null;
-        double[] globalTps = view.includesGlobal() ? Bukkit.getTPS() : null;
+        double[] regionTps = view.includesLocal() ? tpsProvider.localTps(location) : null;
+        double[] globalTps = view.includesGlobal() ? tpsProvider.globalTps() : null;
 
         player.sendMessage(settings.badge().append(Component.text(" TPS snapshot", settings.timeColor())));
         if (view.includesLocal()) {

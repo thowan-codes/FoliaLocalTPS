@@ -1,26 +1,26 @@
-package legendary.hardcore.folialocaltps;
+package legendary.hardcore.canvaslocaltps;
 
 import legendary.hardcore.localtps.LocalTpsPlugin;
 import legendary.hardcore.localtps.TpsProvider;
 
-public final class FoliaLocalTpsPlugin extends LocalTpsPlugin {
+public final class CanvasLocalTpsPlugin extends LocalTpsPlugin {
     @Override
     protected TpsProvider createTpsProvider() {
-        return new FoliaTpsProvider();
+        return new CanvasTpsProvider();
     }
 
     @Override
     public String platformName() {
-        return "Folia";
+        return "Canvas";
     }
 
     @Override
     public String adminCommandName() {
-        return "folialocaltps";
+        return "canvaslocaltps";
     }
 
     @Override
     public String reloadPermission() {
-        return "folialocaltps.reload";
+        return "canvaslocaltps.reload";
     }
 }
