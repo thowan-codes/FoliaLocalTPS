@@ -9,12 +9,15 @@ commands:
   tps-all:
     description: Shows your local region TPS and the global TPS.
     usage: /tps-all
+    permission: canvaslocaltps.execute
   tps-local:
     description: Shows your local region TPS.
     usage: /tps-local
+    permission: canvaslocaltps.execute
   tps-global:
     description: Shows the global TPS.
     usage: /tps-global
+    permission: canvaslocaltps.execute
   canvaslocaltps:
     description: CanvasLocalTPS administration command.
     usage: /canvaslocaltps reload

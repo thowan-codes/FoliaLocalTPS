@@ -8,8 +8,8 @@ The two platform plugins share their configuration, output formatting, and TPS c
 
 Run `./gradlew platformJars` to build both artifacts and copy them to the top-level `dist` directory:
 
-- `dist/FoliaLocalTPS-1.0.0.jar`
-- `dist/CanvasLocalTPS-1.0.0.jar`
+- `dist/FoliaLocalTPS-1.0.1.jar`
+- `dist/CanvasLocalTPS-1.0.1.jar`
 
 ## Commands
 

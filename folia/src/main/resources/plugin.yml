@@ -9,12 +9,15 @@ commands:
   tps-all:
     description: Shows your local region TPS and the global TPS.
     usage: /tps-all
+    permission: folialocaltps.execute
   tps-local:
     description: Shows your local region TPS.
     usage: /tps-local
+    permission: folialocaltps.execute
   tps-global:
     description: Shows the global TPS.
     usage: /tps-global
+    permission: folialocaltps.execute
   folialocaltps:
     description: FoliaLocalTPS administration command.
     usage: /folialocaltps reload
