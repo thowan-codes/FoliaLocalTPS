@@ -25,10 +25,17 @@ Folia's native `/tps` command is not replaced or overridden.
 
 ## Permissions
 
+### Folia Specific
+
 | Permission | Default | Description |
 | --- | --- | --- |
 | `folialocaltps.execute` | `true` | Documents access to the public TPS commands. |
 | `folialocaltps.reload` | `op` | Allows reloading the plugin configuration. |
+
+### Canvas Specific
+
+| Permission | Default | Description |
+| --- | --- | --- |
 | `canvaslocaltps.execute` | `true` | Documents access to the public TPS commands. |
 | `canvaslocaltps.reload` | `op` | Allows reloading the plugin configuration. |
 
