@@ -1,6 +1,6 @@
 # LocalTPS for Folia and Canvas
 
-[![AI assisted](https://img.shields.io/badge/AI-assisted-412991?logo=openai&logoColor=white)](https://openai.com/)
+[![Folia Supported](https://img.shields.io/badge/Folia-supported-6DC9E2)](https://papermc.io/software/folia) [![Canvas Supported](https://img.shields.io/badge/Canvas-supported-3B82F6)](https://canvasmc.io/) [![AI assisted](https://img.shields.io/badge/AI-assisted-412991?logo=openai&logoColor=white)](https://openai.com/)
 
 This project builds lightweight Folia and Canvas plugins that give players useful TPS information without exposing server region details, coordinates, or other player positions.
 
