@@ -1,10 +1,8 @@
-package legendary.hardcore.canvaslocaltps;
-
-import legendary.hardcore.localtps.TpsProvider;
+package localTPS;
 import org.bukkit.Bukkit;
 import org.bukkit.Location;
 
-final class CanvasTpsProvider implements TpsProvider {
+final class FoliaTpsProvider implements TpsProvider {
     @Override
     public double[] localTps(Location location) {
         return Bukkit.getRegionTPS(location);

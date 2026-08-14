@@ -1,4 +1,4 @@
-package legendary.hardcore.localtps;
+package localTPS;
 
 import org.bukkit.Location;
 

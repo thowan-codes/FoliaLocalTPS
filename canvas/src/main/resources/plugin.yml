@@ -1,10 +1,10 @@
 name: CanvasLocalTPS
 version: '${version}'
-main: legendary.hardcore.canvaslocaltps.CanvasLocalTpsPlugin
+main: localTPS.CanvasLocalTpsPlugin
 api-version: '1.21'
 canvas-supported: true
 description: Shows a player's local Canvas region TPS and the global server TPS.
-author: LegendaryHardcore
+author: Thowan
 commands:
   tps-all:
     description: Shows your local region TPS and the global TPS.
