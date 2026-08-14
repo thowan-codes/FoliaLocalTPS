@@ -1,4 +1,4 @@
-package legendary.hardcore.localtps;
+package localTPS;
 
 import java.util.Objects;
 import org.bukkit.command.PluginCommand;

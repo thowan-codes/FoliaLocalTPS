@@ -1,7 +1,4 @@
-package legendary.hardcore.canvaslocaltps;
-
-import legendary.hardcore.localtps.LocalTpsPlugin;
-import legendary.hardcore.localtps.TpsProvider;
+package localTPS;
 
 public final class CanvasLocalTpsPlugin extends LocalTpsPlugin {
     @Override
