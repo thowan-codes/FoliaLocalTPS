@@ -1,7 +1,4 @@
-package legendary.hardcore.folialocaltps;
-
-import legendary.hardcore.localtps.LocalTpsPlugin;
-import legendary.hardcore.localtps.TpsProvider;
+package localTPS;
 
 public final class FoliaLocalTpsPlugin extends LocalTpsPlugin {
     @Override
